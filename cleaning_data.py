@@ -35,9 +35,15 @@ fighter_data['height_cm'] = fighter_data.apply(fill_height, axis=1, median_heigh
 fighter_data['weight_pounds'] = fighter_data.apply(fill_weight, axis=1, median_weight_by_height=median_weight_by_height)
 fighter_data['reach_cm'] = fighter_data.apply(fill_reach, axis=1, median_reach_by_height=median_reach_by_height, median_reach_by_weight=median_reach_by_weight)
 
-# drop rows where both height and weight are NA
+# drop rows where both height and weight are NA,
 fighter_data.dropna(subset=['height_cm', 'weight_pounds'], how='all', inplace=True)
 
+# columns_to_check = ['career_SLpM', 'career_StrAcc', 'career_SApM', 'career_StrDef', 
+#                     'career_TD_Acc', 'career_TD_Def', 'career_Sub_Avg']
+
+# # Drop rows where any of the specified columns have missing values
+# fighter_data.dropna(subset=columns_to_check, how='any', inplace=True)
+
+# Save the cleaned data
 fighter_data.to_csv('cleaned_fighters.csv', index=False)
-
-
+print("Successfully cleaned")
