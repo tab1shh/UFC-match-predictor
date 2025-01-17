@@ -38,11 +38,17 @@ fighter_data['reach_cm'] = fighter_data.apply(fill_reach, axis=1, median_reach_b
 # drop rows where both height and weight are NA,
 fighter_data.dropna(subset=['height_cm', 'weight_pounds'], how='all', inplace=True)
 
+fighter_data = fighter_data.dropna(subset=['date_of_birth'])
+most_common_stance = fighter_data['stance'].mode()[0]
+fighter_data['stance'] = fighter_data['stance'].fillna(most_common_stance)
+
 # columns_to_check = ['career_SLpM', 'career_StrAcc', 'career_SApM', 'career_StrDef', 
 #                     'career_TD_Acc', 'career_TD_Def', 'career_Sub_Avg']
 
 # # Drop rows where any of the specified columns have missing values
 # fighter_data.dropna(subset=columns_to_check, how='any', inplace=True)
+
+
 
 # Save the cleaned data
 fighter_data.to_csv('cleaned_fighters.csv', index=False)
