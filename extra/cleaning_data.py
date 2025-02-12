@@ -47,8 +47,6 @@ want to remove all inactive fighters from the cleaned data as well
 so in the final there should be around 900 fighters
 '''
 
-
-
 # Save the cleaned data
-fighter_data.to_csv('cleaned_fighters.csv', index=False)
+fighter_data.to_csv('extra/cleaned_fighters.csv', index=False)
 print("Successfully cleaned")
