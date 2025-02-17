@@ -43,8 +43,8 @@ if fighter_1.lower() in fighter_stats and fighter_2.lower() in fighter_stats:
     match_features_df = pd.DataFrame([match_features])
 
     # Debugging: Print the features being generated
-    print("Generated Features:")
-    print(match_features_df.columns.tolist())
+    # print("Generated Features:")
+    # print(match_features_df.columns.tolist())
 
     # Scale the features (Use the same scaler from training)
     scaler = StandardScaler()
@@ -55,6 +55,6 @@ if fighter_1.lower() in fighter_stats and fighter_2.lower() in fighter_stats:
 
     # Interpret the result
     winner = fighter_1 if prediction == 1 else fighter_2
-    print(f"\n🔥 Predicted Winner: {winner} 🔥")
+    print(f"\nPredicted Winner: {winner}")
 else:
-    print("\n⚠️ One or both fighters not found in the dataset. Please check the spelling or try another pair.")
+    print("\nOne or both fighters not found in the dataset. Please check the spelling or try another pair.")
