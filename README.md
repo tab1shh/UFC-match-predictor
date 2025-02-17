@@ -4,12 +4,12 @@ The model currently achieves 60% accuracy based on historical fight data.
 
 To know how the data was collected, head over to this repository: https://github.com/tab1shh/UFC-scraper
 
-# Features
+## Features
 - Data Preprocessing: Filters and structures relevant fighter attributes.
 - Machine Learning Model: Uses Scikit-learn to train a predictor on past fight results.
 - Prediction Output: Provides fight outcome predictions based on input fighter stats.
 
-# Getting Started
+## Getting Started
 1. Clone the repository
 ```bash
 git clone https://github.com/yourusername/UFC-match-predictor.git
@@ -26,20 +26,20 @@ pip install -r requirements.txt
 python predictor.py
 ```
 
-# Tech Stack
+## Tech Stack
 - Python
 - Scikit-learn (ML model)
 - BeautifulSoup (Web scraping)
 - Pandas (Data processing)
 - NumPy (Numerical computations)
 
-# Model Performance
+## Model Performance
 - Accuracy: ~60%
 - Trained on: Historical UFC fight data
 
-# Future Improvements
+## Future Improvements
 - Improve feature selection & preprocessing for better accuracy.
 - Integrate real-time fight data updates.
 
-# Contributing 
+## Contributing 
 Feel free to fork the repo and submit PRs!
