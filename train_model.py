@@ -11,7 +11,7 @@ from joblib import Parallel, delayed
 start_time = time.time()
 
 # Load data
-file_path = 'filtered_fighters_data.csv'
+file_path = 'predictor_data.csv'
 ufc_stats = pd.read_csv(file_path, encoding='latin-1')
 
 # handle missing values
@@ -23,7 +23,7 @@ ufc_stats['stance'] = le.fit_transform(ufc_stats['stance'])
 
 # Convert percentages to numerical data
 for col in ['win_rate', 'loss_rate', 'draw_rate', 'dc_nc_rate', 'career_StrDef', 'career_TD_Acc', 'career_TD_Def']:
-    ufc_stats[col] = ufc_stats[col].str.replace('%', '').astype(float) / 100
+    ufc_stats[col] = ufc_stats[col].astype(str).str.replace('%', '').astype(float) / 100
 
 fighter_stats = {row['fighter_name']: row for _, row in ufc_stats.iterrows()}
 

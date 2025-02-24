@@ -5,7 +5,7 @@ from sklearn.preprocessing import LabelEncoder, StandardScaler
 
 model = joblib.load('fighter_predictor_model.pkl')
 
-file_path = 'combined_fighter_data.csv'
+file_path = 'cleaned_fighter_data.csv'
 new_data = pd.read_csv(file_path, encoding='latin-1')
 
 # Add a default value for 'career_KD_Avg'
@@ -19,7 +19,7 @@ new_data['stance'] = le.fit_transform(new_data['stance'])
 
 # Convert percentages to numerical data
 for col in ['win_rate', 'loss_rate', 'draw_rate', 'dc_nc_rate', 'career_StrDef', 'career_TD_Acc', 'career_TD_Def']:
-    new_data[col] = new_data[col].str.replace('%', '').astype(float) / 100
+    new_data[col] = new_data[col].astype(str).str.replace('%', '').astype(float) / 100
 
 # Convert fighter names to lowercase for case-insensitive comparison
 fighter_stats = {row['fighter_name'].lower(): row for _, row in new_data.iterrows()}
