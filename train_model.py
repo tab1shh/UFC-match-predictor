@@ -11,7 +11,7 @@ from joblib import Parallel, delayed
 start_time = time.time()
 
 # Load data
-file_path = 'predictor_data.csv'
+file_path = 'csv_files/predictor_data.csv'
 ufc_stats = pd.read_csv(file_path, encoding='latin-1')
 
 # handle missing values

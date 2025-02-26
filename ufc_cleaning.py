@@ -5,8 +5,8 @@ So take their name, stats, etc
 '''
 import pandas as pd
 
-combined_fighter = pd.read_csv('combined_fighter_data.csv')
-ufc_rankings = pd.read_csv('ufc_rankings.csv')
+combined_fighter = pd.read_csv('csv_files/combined_fighter_data.csv')
+ufc_rankings = pd.read_csv('csv_files/ufc_rankings.csv')
 
 combined_fighter = combined_fighter.drop_duplicates(subset=['fighter_name'], keep='first')
 ufc_rankings = ufc_rankings.drop_duplicates(subset=['Name'], keep='first')
@@ -15,5 +15,5 @@ merged_fighters = pd.merge(combined_fighter, ufc_rankings, left_on='fighter_name
 
 merged_fighters.drop(columns=['Name'], inplace=True)
 
-merged_fighters.to_csv('filtered_fighters_data.csv', index=False)
+merged_fighters.to_csv('csv_files/predictor_data.csv', index=False)
 print(merged_fighters)

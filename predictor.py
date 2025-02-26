@@ -5,7 +5,7 @@ from sklearn.preprocessing import LabelEncoder, StandardScaler
 
 model = joblib.load('fighter_predictor_model.pkl')
 
-file_path = 'cleaned_fighter_data.csv'
+file_path = 'csv_files/cleaned_fighter_data.csv'
 new_data = pd.read_csv(file_path, encoding='latin-1')
 
 # Add a default value for 'career_KD_Avg'
